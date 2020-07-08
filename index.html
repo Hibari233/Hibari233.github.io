@@ -162,7 +162,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://hibari233.github.io/2020/07/07/linux_csgo_install/">
+    <link itemprop="mainEntityOfPage" href="http://hibari233.github.io/2020/07/08/cfg_configure/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s1.ax1x.com/2020/07/07/Uk7IDP.jpg">
@@ -176,7 +176,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/07/07/linux_csgo_install/" class="post-title-link" itemprop="url">在Ubuntu Server 20.04 LTS系统上搭建CSGO服务器#1</a>
+            <a href="/2020/07/08/cfg_configure/" class="post-title-link" itemprop="url">在Ubuntu Server 20.04 LTS系统上搭建CSGO服务器#2 --cfg配置</a>
         </h2>
 
         <div class="post-meta">
@@ -187,8 +187,91 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-07-07 17:03:43 / 修改时间：23:30:28" itemprop="dateCreated datePublished" datetime="2020-07-07T17:03:43+08:00">2020-07-07</time>
+              <time title="创建时间：2020-07-08 08:07:43 / 修改时间：08:32:03" itemprop="dateCreated datePublished" datetime="2020-07-08T08:07:43+08:00">2020-07-08</time>
             </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSGO%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/" itemprop="url" rel="index"><span itemprop="name">CSGO服务器搭建</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我们需要配置一些cfg，让服务器按照预定的模式进行启动，在CSGO服务端根目录下的cfg文件夹创建<strong>server.cfg</strong>可以让CSGO服务端在启动时自动执行这些cfg</p>
+<h2 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h2><p>我会在下面给出一些基础模板，然后解释一些重要参数的含义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">hostname &quot;&quot; &#x2F;&#x2F;服务器名称</span><br><span class="line">rcon_password &quot;&quot; &#x2F;&#x2F;服务器rcon密码</span><br><span class="line">sv_password &quot;&quot;  &#x2F;&#x2F;服务器密码</span><br><span class="line">host_info_show 2</span><br><span class="line">host_players_show 2</span><br><span class="line">sv_region 4 &#x2F;&#x2F;这个是只在亚洲显示你的服务器，如果要是全球范围显示则设置为255 </span><br><span class="line">sv_cheats 0 </span><br><span class="line">sv_lan 0 </span><br><span class="line">&#x2F;&#x2F; 以下是一些bot的设置</span><br><span class="line">bot_difficulty 3</span><br><span class="line">bot_chatter &quot;off&quot;</span><br><span class="line">bot_join_after_player 1</span><br><span class="line">bot_quota 10</span><br><span class="line">bot_quota_mode &quot;fill&quot;</span><br><span class="line">sv_setsteamaccount  &quot;&quot; &#x2F;&#x2F;这里填写GLST</span><br><span class="line">&#x2F;&#x2F;这里要注意，如果全写128的话，将无法保证服务器在理论数据下不丢包，5Mbps 10人这里都写128的话，会出现严重丢包情况</span><br><span class="line">sv_mincmdrate &quot;64&quot; </span><br><span class="line">sv_minupdaterate &quot;64&quot; </span><br><span class="line">sv_maxupdaterate &quot;128&quot; </span><br><span class="line">sv_maxrate 0</span><br><span class="line">sv_minrate 786432</span><br><span class="line">sm_cvar sv_client_min_interp_ratio &quot;2&quot;</span><br><span class="line">sm_cvar sv_client_max_interp_ratio &quot;2&quot;</span><br><span class="line">sm_cvar net_maxcleartime 0.001</span><br><span class="line">sv_tags &#x2F;&#x2F;这里填写服务器的标签，逗号分隔</span><br><span class="line">&#x2F;&#x2F;以下是写入封禁踢出列表</span><br><span class="line">writeid</span><br><span class="line">writeip</span><br><span class="line">exec banned_user.cfg</span><br><span class="line">exec banned_ip.cfg</span><br></pre></td></tr></table></figure>
+
+<h2 id="进阶配置"><a href="#进阶配置" class="headerlink" title="进阶配置"></a>进阶配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sv_hibernate_when_empty 0&#x2F;1 &#x2F;&#x2F;服务器空载休眠</span><br></pre></td></tr></table></figure>
+<p>很多人都是上来就把这东西关掉，这个东西是自动更新最主要的一个参数，以后再讲</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">tv_enable 1</span><br><span class="line">tv_delaymapchange 1</span><br><span class="line">tv_delay 45</span><br><span class="line">tv_deltacache 2</span><br><span class="line">tv_dispatchmode 1</span><br><span class="line">tv_overridemaster 0</span><br><span class="line">tv_relayvoice 1</span><br><span class="line">tv_snapshotrate 20</span><br><span class="line">tv_timeout 60</span><br><span class="line">tv_transmitall 1</span><br></pre></td></tr></table></figure>
+<p>GOTV配置，启动项+tv_port 可以更改GOTV端口，以免在单服务器多服务端配置下造成端口占用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sv_allowdownload 1</span><br><span class="line">sv_allowupload 1</span><br><span class="line">sv_downloadurl &quot;&quot; &#x2F;&#x2F;这里配置下载站url</span><br></pre></td></tr></table></figure>
+<p>然后如果服务器有一些自定义的模型，喷漆等，需要用到FastDL服务器，也就是下载服务器，下载服务器的搭建以后会讲到</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://hibari233.github.io/2020/07/07/csgoserver_install/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s1.ax1x.com/2020/07/07/Uk7IDP.jpg">
+      <meta itemprop="name" content="Hibari">
+      <meta itemprop="description" content="云雀酱,OIer一枚,CSGO某社区服技术">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hibari的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/07/csgoserver_install/" class="post-title-link" itemprop="url">在Ubuntu Server 20.04 LTS系统上搭建CSGO服务器#1</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-07 17:03:43" itemprop="dateCreated datePublished" datetime="2020-07-07T17:03:43+08:00">2020-07-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-08 08:06:47" itemprop="dateModified" datetime="2020-07-08T08:06:47+08:00">2020-07-08</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -267,13 +350,19 @@
 <h3 id="4-创建专用于启动CSGO服务端的账户"><a href="#4-创建专用于启动CSGO服务端的账户" class="headerlink" title="4. 创建专用于启动CSGO服务端的账户"></a>4. 创建专用于启动CSGO服务端的账户</h3><p>因为使用root启动CSGO服务端会有很多风险，所以CSGO官方不建议使用root账户启用，所以我们需要创建一个普通账户</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">useradd steam</span><br><span class="line">usermod -s &#x2F;bin&#x2F;bash steam</span><br><span class="line">usermod -d &#x2F;home&#x2F;steam steam</span><br><span class="line">mkdir &#x2F;home&#x2F;steam</span><br></pre></td></tr></table></figure>
 <p>这里创建了一个名为steam的账户</p>
-<h3 id="5-下载Steamcmd脚本"><a href="#5-下载Steamcmd脚本" class="headerlink" title="5. 下载Steamcmd脚本"></a>5. 下载Steamcmd脚本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;home&#x2F;steam</span><br><span class="line">mkdir steamcmd</span><br><span class="line">cd steamcmd</span><br><span class="line">rm steamcmd_linux.tar.gz</span><br><span class="line">wget https:&#x2F;&#x2F;steamcdn-a.akamaihd.net&#x2F;client&#x2F;installer&#x2F;steamcmd_linux.tar.gz</span><br><span class="line">tar zxvf steamcmd_linux.tar.gz</span><br></pre></td></tr></table></figure>
+<h3 id="5-下载Steamcmd脚本"><a href="#5-下载Steamcmd脚本" class="headerlink" title="5. 下载Steamcmd脚本"></a>5. 下载Steamcmd脚本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;home&#x2F;steam</span><br><span class="line">mkdir steamcmd</span><br><span class="line">cd steamcmd</span><br><span class="line">wget https:&#x2F;&#x2F;steamcdn-a.akamaihd.net&#x2F;client&#x2F;installer&#x2F;steamcmd_linux.tar.gz</span><br><span class="line">tar zxvf steamcmd_linux.tar.gz</span><br></pre></td></tr></table></figure>
 
 <h3 id="6-安装CSGO服务端"><a href="#6-安装CSGO服务端" class="headerlink" title="6. 安装CSGO服务端"></a>6. 安装CSGO服务端</h3><ol>
-<li>这里有一个东西叫做update.txt文件，它是用来告诉steamcmd安装什么东西，安装在哪里的文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;@ShutdownOnFailedCommand 1&quot; &gt;&gt;update.txt</span><br><span class="line">echo &quot;@NoPromptForPassword 1&quot; &gt;&gt;update.txt</span><br><span class="line">echo &quot;login anonymous&quot; &gt;&gt;update.txt</span><br><span class="line">echo &quot;force_install_dir ..&#x2F;csgoserver&#x2F;&quot; &gt;&gt;update.txt</span><br><span class="line">echo &quot;app_update 740&quot; &gt;&gt;update.txt</span><br><span class="line">echo &quot;quit&quot; &gt;&gt;update.txt</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">force_install_dir #此参数为服务端安装路径</span><br></pre></td></tr></table></figure></li>
-<li>然后给脚本执行权限并运行脚本<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod +x steamcmd.sh</span><br><span class="line">.&#x2F;steamcmd.sh +runscript update.txt</span><br></pre></td></tr></table></figure>
-接着就是等待时间咯<br>注：这里如果安装失败，最常见的报错就是0x202，这个报错的意思就是剩余空间不足，即使你认为空间十分充足，解决这个问题的办法貌似只有删掉服务端重装</li>
+<li><p>这里有一个东西叫做update.txt文件，它是用来告诉steamcmd安装什么东西，安装在哪里的文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;@ShutdownOnFailedCommand 1&quot; &gt;&gt;update.txt</span><br><span class="line">echo &quot;@NoPromptForPassword 1&quot; &gt;&gt;update.txt</span><br><span class="line">echo &quot;login anonymous&quot; &gt;&gt;update.txt</span><br><span class="line">echo &quot;force_install_dir ..&#x2F;csgoserver&#x2F;&quot; &gt;&gt;update.txt</span><br><span class="line">echo &quot;app_update 740&quot; &gt;&gt;update.txt</span><br><span class="line">echo &quot;quit&quot; &gt;&gt;update.txt</span><br></pre></td></tr></table></figure>
+<p>或者使用vim来写入update.txt</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@ShutdownOnFailedCommand 1</span><br><span class="line">@NoPromptForPassword 1</span><br><span class="line">login anonymous</span><br><span class="line">force_install_dir ..&#x2F;csgoserver&#x2F;</span><br><span class="line">app_update 740</span><br><span class="line">quit</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">force_install_dir #此参数为服务端安装路径</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后给脚本执行权限并运行脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod +x steamcmd.sh</span><br><span class="line">.&#x2F;steamcmd.sh +runscript update.txt</span><br></pre></td></tr></table></figure>
+<p>接着就是等待时间咯<br>注：这里如果安装失败，最常见的报错就是0x202，这个报错的意思就是剩余空间不足，即使你认为空间十分充足，解决这个问题的办法貌似只有删掉服务端重装</p>
+</li>
 </ol>
 <h3 id="7-安装sourcemod与metamod"><a href="#7-安装sourcemod与metamod" class="headerlink" title="7. 安装sourcemod与metamod"></a>7. 安装sourcemod与metamod</h3><p>肯定有人要问了，这俩是什么东西啊，有什么用啊，怎么弄啊？(素质三连)<br>百度是这样说的</p>
 <blockquote>
@@ -373,7 +462,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
