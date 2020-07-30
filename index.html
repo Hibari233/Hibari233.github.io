@@ -202,7 +202,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-31 07:42:38" itemprop="dateModified" datetime="2020-07-31T07:42:38+08:00">2020-07-31</time>
+                <time title="修改时间：2020-07-31 07:48:32" itemprop="dateModified" datetime="2020-07-31T07:48:32+08:00">2020-07-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -226,16 +226,14 @@
 
       
           <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我们需要配置一些cfg，让服务器按照预定的模式进行启动，在CSGO服务端根目录下的cfg文件夹创建<strong>server.cfg</strong>可以让CSGO服务端在启动时自动执行这些cfg</p>
-<h2 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h2><p>我会在下面给出一些基础模板，然后解释一些重要参数的含义</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">hostname &quot;&quot; &#x2F;&#x2F;服务器名称</span><br><span class="line">rcon_password &quot;&quot; &#x2F;&#x2F;服务器rcon密码</span><br><span class="line">sv_password &quot;&quot;  &#x2F;&#x2F;服务器密码</span><br><span class="line">host_info_show 2</span><br><span class="line">host_players_show 2</span><br><span class="line">sv_region 4 &#x2F;&#x2F;这个是只在亚洲显示你的服务器，如果要是全球范围显示则设置为255 </span><br><span class="line">sv_cheats 0 </span><br><span class="line">sv_lan 0 </span><br><span class="line">&#x2F;&#x2F; 以下是一些bot的设置</span><br><span class="line">bot_difficulty 3</span><br><span class="line">bot_chatter &quot;off&quot;</span><br><span class="line">bot_join_after_player 1</span><br><span class="line">bot_quota 10</span><br><span class="line">bot_quota_mode &quot;fill&quot;</span><br><span class="line">sv_setsteamaccount  &quot;&quot; &#x2F;&#x2F;这里填写GLST</span><br><span class="line">&#x2F;&#x2F;这里要注意，如果全写128的话，将无法保证服务器在理论数据下不丢包，5Mbps 10人这里都写128的话，会出现严重丢包情况</span><br><span class="line">sv_mincmdrate &quot;64&quot; </span><br><span class="line">sv_minupdaterate &quot;64&quot; </span><br><span class="line">sv_maxupdaterate &quot;128&quot; </span><br><span class="line">sv_maxrate 0</span><br><span class="line">sv_minrate 786432</span><br><span class="line">sm_cvar sv_client_min_interp_ratio &quot;2&quot;</span><br><span class="line">sm_cvar sv_client_max_interp_ratio &quot;2&quot;</span><br><span class="line">sm_cvar net_maxcleartime 0.001</span><br><span class="line">sv_tags &#x2F;&#x2F;这里填写服务器的标签，逗号分隔</span><br><span class="line">&#x2F;&#x2F;以下是写入封禁踢出列表</span><br><span class="line">writeid</span><br><span class="line">writeip</span><br><span class="line">exec banned_user.cfg</span><br><span class="line">exec banned_ip.cfg</span><br></pre></td></tr></table></figure>
-
-<h2 id="进阶配置"><a href="#进阶配置" class="headerlink" title="进阶配置"></a>进阶配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sv_hibernate_when_empty 0&#x2F;1 &#x2F;&#x2F;服务器空载休眠</span><br></pre></td></tr></table></figure>
-<p>很多人都是上来就把这东西关掉，这个东西是自动更新最主要的一个参数，以后再讲</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">tv_enable 1</span><br><span class="line">tv_delaymapchange 1</span><br><span class="line">tv_delay 45</span><br><span class="line">tv_deltacache 2</span><br><span class="line">tv_dispatchmode 1</span><br><span class="line">tv_overridemaster 0</span><br><span class="line">tv_relayvoice 1</span><br><span class="line">tv_snapshotrate 20</span><br><span class="line">tv_timeout 60</span><br><span class="line">tv_transmitall 1</span><br></pre></td></tr></table></figure>
-<p>GOTV配置，启动项+tv_port 可以更改GOTV端口，以免在单服务器多服务端配置下造成端口占用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sv_allowdownload 1</span><br><span class="line">sv_allowupload 1</span><br><span class="line">sv_downloadurl &quot;&quot; &#x2F;&#x2F;这里配置下载站url</span><br></pre></td></tr></table></figure>
-<p>然后如果服务器有一些自定义的模型，喷漆等，需要用到FastDL服务器，也就是下载服务器，下载服务器的搭建以后会讲到</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/07/08/cfg_configure/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -285,7 +283,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-31 07:42:34" itemprop="dateModified" datetime="2020-07-31T07:42:34+08:00">2020-07-31</time>
+                <time title="修改时间：2020-07-31 07:48:29" itemprop="dateModified" datetime="2020-07-31T07:48:29+08:00">2020-07-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -310,91 +308,14 @@
       
           <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近看到很多萌新想到搭建一个自己的CSGO服务器，但是很多教程只是机械化的让萌新一步一步输入命令，并没有解释服务端的基础架构以及运作机制，插件的使用与配置，所以我打算写一篇讲解详细的CSGO服务器搭建教程，并且由于目前在维护大的社区服，所以对单服务器多CSGO端也会写一些教程。</p>
 <hr>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="1-服务器购买"><a href="#1-服务器购买" class="headerlink" title="1. 服务器购买"></a>1. 服务器购买</h3><p>服务器的购买有这么几项需要注意: </p>
-<blockquote>
-<p>CPU<br>带宽<br>存储<br>系统</p>
-</blockquote>
-<p>我的推荐是如下</p>
-<blockquote>
-<ul>
-<li>CPU至少要选择不低于2.5Ghz的处理器，单核就足够。</li>
-<li>带宽按照 0.5Mbps/人 来计算，如果你要是开满十服务器，那么5Mbps带宽将可保证你的服务器在<strong>绝大多数情况</strong>下128tick无丢包</li>
-<li>存储对于Ubuntu Server 20.04 LTS系统，单服务端只需要<strong>40GB</strong>即可</li>
-<li>系统选择Ubuntu Server <strong>20.04</strong> LTS，我测试过很多系统，Ubuntu Server 20.04 LTS 系统在运行CSGO服务器时var十分稳定，比Ubuntu Server 18.04 LTS 和 CentOS 7 要稳定一些</li>
-</ul>
-</blockquote>
-<p>总结</p>
-<blockquote>
-<p>如果你要是开10人左右的128tick服务器，那么我首推阿里云学生云服务器，配置为1C 2G 5Mbps，8269CY处理器在插件较小的情况下可以维持0.00x的var (购买时不要买错，要买轻量云服务器)</p>
-</blockquote>
-<h3 id="2-远程连接软件的安装"><a href="#2-远程连接软件的安装" class="headerlink" title="2. 远程连接软件的安装"></a>2. 远程连接软件的安装</h3><p>由于系统是Linux，所以我们需要一些软件来连接服务器，这里推荐一些软件</p>
-<blockquote>
-<ol>
-<li>SSH软件<blockquote>
-<p>Windows自带SSH<br>Xshell<br>FinalShell</p>
-</blockquote>
-</li>
-<li>文件上传软件<blockquote>
-<p>WinSCP<br>FinalShell</p>
-</blockquote>
-</li>
-<li>文本编辑软件<blockquote>
-<p>Visual Studio Code<br>Notepad ++<br>Sublime Text</p>
-</blockquote>
-</li>
-</ol>
-</blockquote>
-<h3 id="3-Linux基本命令"><a href="#3-Linux基本命令" class="headerlink" title="3. Linux基本命令"></a>3. Linux基本命令</h3><p>Linux系统完全不同于Windows系统，所以需要先去了解一下Linux基本指令，以免一会不会操作。</p>
-<blockquote>
-<p>需要学习的指令大概如下</p>
-<blockquote>
-<p>Linux系统文件结构<br>基本文件操作<br>vim的基本使用<br>chmod更改权限<br>su 切换用户<br>以及脚本基础编写</p>
-</blockquote>
-</blockquote>
-<p>这里推荐一个网站 <a href="https://www.runoob.com/linux/linux-tutorial.html" target="_blank" rel="noopener">RUNOOB Linux教程</a></p>
-<h3 id="4-Steam服务器令牌"><a href="#4-Steam服务器令牌" class="headerlink" title="4. Steam服务器令牌"></a>4. Steam服务器令牌</h3><p>我们需要一个Steam服务器令牌(GLST)才能使服务器在Steam服务器列表被搜索到<br><a href="https://steamcommunity.com/dev/managegameservers" target="_blank" rel="noopener">Steam令牌申请网站</a><br>App ID 填写 <strong>730</strong><br>备忘录可以添加你的服务器IP，方便以后记忆</p>
-<h3 id="5-服务器防火墙设置"><a href="#5-服务器防火墙设置" class="headerlink" title="5. 服务器防火墙设置"></a>5. 服务器防火墙设置</h3><p>在进行此步之前，请确保你已经购买了服务器，为了安全考虑，可以选择开放27015与27036端口，但如果需要使用GOTV等，那就干脆全开好了，记得选择TCP+UDP全开。</p>
-<hr>
-<h2 id="开始搭建"><a href="#开始搭建" class="headerlink" title="开始搭建"></a>开始搭建</h2><h3 id="1-连接服务器"><a href="#1-连接服务器" class="headerlink" title="1. 连接服务器"></a>1. 连接服务器</h3><blockquote>
-<p>如果要是用Windows ssh，那么终端直接输入 ssh 用户名@IP 并输入密码就可以连接<br>其他软件有GUI界面，很简单，这里不再说明</p>
-</blockquote>
-<h3 id="2-更新Ubuntu源与系统"><a href="#2-更新Ubuntu源与系统" class="headerlink" title="2. 更新Ubuntu源与系统"></a>2. 更新Ubuntu源与系统</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update -y &amp;&amp; apt-get upgrade -y</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-安装Steam与CSGO服务端的必要依赖"><a href="#3-安装Steam与CSGO服务端的必要依赖" class="headerlink" title="3. 安装Steam与CSGO服务端的必要依赖"></a>3. 安装Steam与CSGO服务端的必要依赖</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dpkg --add-architecture i386</span><br><span class="line">apt-get update -y</span><br><span class="line">sudo apt-get install libstdc++6:i386 libgcc1:i386 libcurl4-gnutls-dev:i386 -y</span><br><span class="line">sudo apt-get install lib32gcc1 -y</span><br><span class="line">sudo apt-get install libgcc1 -y</span><br><span class="line">sudo apt-get install libcurl4-gnutls-dev:i386 -y</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-创建专用于启动CSGO服务端的账户"><a href="#4-创建专用于启动CSGO服务端的账户" class="headerlink" title="4. 创建专用于启动CSGO服务端的账户"></a>4. 创建专用于启动CSGO服务端的账户</h3><p>因为使用root启动CSGO服务端会有很多风险，所以CSGO官方不建议使用root账户启用，所以我们需要创建一个普通账户</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">useradd steam</span><br><span class="line">usermod -s &#x2F;bin&#x2F;bash steam</span><br><span class="line">usermod -d &#x2F;home&#x2F;steam steam</span><br><span class="line">mkdir &#x2F;home&#x2F;steam</span><br></pre></td></tr></table></figure>
-<p>这里创建了一个名为steam的账户</p>
-<h3 id="5-下载Steamcmd脚本"><a href="#5-下载Steamcmd脚本" class="headerlink" title="5. 下载Steamcmd脚本"></a>5. 下载Steamcmd脚本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;home&#x2F;steam</span><br><span class="line">mkdir steamcmd</span><br><span class="line">cd steamcmd</span><br><span class="line">wget https:&#x2F;&#x2F;steamcdn-a.akamaihd.net&#x2F;client&#x2F;installer&#x2F;steamcmd_linux.tar.gz</span><br><span class="line">tar zxvf steamcmd_linux.tar.gz</span><br></pre></td></tr></table></figure>
-
-<h3 id="6-安装CSGO服务端"><a href="#6-安装CSGO服务端" class="headerlink" title="6. 安装CSGO服务端"></a>6. 安装CSGO服务端</h3><ol>
-<li><p>这里有一个东西叫做update.txt文件，它是用来告诉steamcmd安装什么东西，安装在哪里的文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;@ShutdownOnFailedCommand 1&quot; &gt;&gt;update.txt</span><br><span class="line">echo &quot;@NoPromptForPassword 1&quot; &gt;&gt;update.txt</span><br><span class="line">echo &quot;login anonymous&quot; &gt;&gt;update.txt</span><br><span class="line">echo &quot;force_install_dir ..&#x2F;csgoserver&#x2F;&quot; &gt;&gt;update.txt</span><br><span class="line">echo &quot;app_update 740&quot; &gt;&gt;update.txt</span><br><span class="line">echo &quot;quit&quot; &gt;&gt;update.txt</span><br></pre></td></tr></table></figure>
-<p>或者使用vim来写入update.txt</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@ShutdownOnFailedCommand 1</span><br><span class="line">@NoPromptForPassword 1</span><br><span class="line">login anonymous</span><br><span class="line">force_install_dir ..&#x2F;csgoserver&#x2F;</span><br><span class="line">app_update 740</span><br><span class="line">quit</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">force_install_dir #此参数为服务端安装路径</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>然后给脚本执行权限并运行脚本</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod +x steamcmd.sh</span><br><span class="line">.&#x2F;steamcmd.sh +runscript update.txt</span><br></pre></td></tr></table></figure>
-<p>接着就是等待时间咯<br>注：这里如果安装失败，最常见的报错就是0x202，这个报错的意思就是剩余空间不足，即使你认为空间十分充足，解决这个问题的办法貌似只有删掉服务端重装</p>
-</li>
-</ol>
-<h3 id="7-安装sourcemod与metamod"><a href="#7-安装sourcemod与metamod" class="headerlink" title="7. 安装sourcemod与metamod"></a>7. 安装sourcemod与metamod</h3><p>肯定有人要问了，这俩是什么东西啊，有什么用啊，怎么弄啊？(素质三连)<br>百度是这样说的</p>
-<blockquote>
-<p>SourceMOD是一个强大的，高度优化的脚本插件和处理服务器管理平台。</p>
-</blockquote>
-<p>实际上，简单来说就是插件平台，装了这东西之后，你就可以装很多插件了，来实现各种原版服务端没有的功能，例如回防，多人1v1之类的</p>
-<p>那这么好的东西，怎么装啊!</p>
-<p>先看一下这两个东西的官方下载地址<br><a href="https://www.sourcemod.net/downloads.php" target="_blank" rel="noopener">sourcemod下载地址</a><br><a href="http://www.metamodsource.net/downloads.php?branch=stable" target="_blank" rel="noopener">metamod下载地址</a></p>
-<p>实际上我们只需要下载对应操作系统的包，然后扔到CSGO服务端<strong>csgo目录</strong>下即可，但是我们为了简化这一步骤，用了一个东西叫做<strong>wget</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;sm.alliedmods.net&#x2F;smdrop&#x2F;1.10&#x2F;sourcemod-1.10.0-git6474-linux.tar.gz</span><br><span class="line">wget https:&#x2F;&#x2F;mms.alliedmods.net&#x2F;mmsdrop&#x2F;1.10&#x2F;mmsource-1.10.7-git971-linux.tar.gz</span><br></pre></td></tr></table></figure>
-<p>然后解压</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf sourcemod-1.10.0-git6474-linux.tar.gz</span><br><span class="line">tar -zxvf mmsource-1.10.7-git971-linux.tar.gz</span><br></pre></td></tr></table></figure>
-<p>接着把解压出来的文件扔到CSGO服务端<strong>csgo目录</strong>下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mv addons&#x2F; &#x2F;home&#x2F;steam&#x2F;csgoserver&#x2F;csgo&#x2F;</span><br><span class="line">mv cfg&#x2F;* &#x2F;home&#x2F;steam&#x2F;csgoserver&#x2F;csgo&#x2F;cfg&#x2F;</span><br></pre></td></tr></table></figure>
-<p>这样sourcemod和metamod就都安装完毕了</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>现在的CSGO服务端已经算安装完毕了，关于服务端参数，GLST的设置，以及插件的安装，我打算将之后的几个章节按模块化编写，这样就方便大家各取所需</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/07/07/csgoserver_install/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
